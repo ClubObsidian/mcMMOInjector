@@ -1,0 +1,31 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+  }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+repositories {
+    mavenCentral()
+    maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
+    flatDir { dirs 'libs' }
+}
+
+
+shadowJar {
+   baseName = 'mcMMOManager'
+   classifier = null
+   version = null
+}
+
+dependencies {
+	compileOnly 'org.bukkit:bukkit:1.12.2-R0.1-SNAPSHOT'
+	compileOnly name: 'mcmmo'
+}

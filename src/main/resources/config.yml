@@ -1,0 +1,9 @@
+#Available skills
+#acrobatics
+#archery
+#axes
+#swords
+#unarmed
+#mining
+disabled-skills:
+- "mining"

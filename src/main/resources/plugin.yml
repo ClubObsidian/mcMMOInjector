@@ -1,0 +1,5 @@
+name: mcMMOInjector
+main: com.clubobsidian.mcmmoinjector.McMmoInjector
+version: 0.0.1
+author: [VirusTotal]
+loadbefore: [mcMMO]
