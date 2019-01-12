@@ -196,8 +196,8 @@ public class MiningManager extends SkillManager {
         int skillLevel = getSkillLevel();
 
         for (Tier tier : Tier.values()) {
-            if (skillLevel >= tier.getLevel()) {
-                return tier.toNumerical();
+            if (skillLevel >= TierReflection.getLevel(tier)) {
+                return TierReflection.toNumerical(tier);
             }
         }
 
@@ -213,8 +213,8 @@ public class MiningManager extends SkillManager {
         int skillLevel = getSkillLevel();
 
         for (Tier tier : Tier.values()) {
-            if (skillLevel >= tier.getLevel()) {
-                return tier.getOreBonus();
+            if (skillLevel >= TierReflection.getLevel(tier)) {
+                return TierReflection.getOreBonus(tier);
             }
         }
 
@@ -230,8 +230,8 @@ public class MiningManager extends SkillManager {
         int skillLevel = getSkillLevel();
 
         for (Tier tier : Tier.values()) {
-            if (skillLevel >= tier.getLevel()) {
-                return tier.getDebrisReduction();
+            if (skillLevel >= TierReflection.getLevel(tier)) {
+                return TierReflection.getDebrisReduction(tier);
             }
         }
 
@@ -247,8 +247,8 @@ public class MiningManager extends SkillManager {
         int skillLevel = getSkillLevel();
 
         for (Tier tier : Tier.values()) {
-            if (skillLevel >= tier.getLevel()) {
-                return tier.getDropMultiplier();
+            if (skillLevel >= TierReflection.getLevel(tier)) {
+                return TierReflection.getDropMultiplier(tier);
             }
         }
 
@@ -264,8 +264,8 @@ public class MiningManager extends SkillManager {
         int skillLevel = getSkillLevel();
 
         for (Tier tier : Tier.values()) {
-            if (skillLevel >= tier.getLevel()) {
-                return tier.getBlastRadiusModifier();
+            if (skillLevel >= TierReflection.getLevel(tier)) {
+                return TierReflection.getBlastRadiusModifier(tier);
             }
         }
 
@@ -281,8 +281,8 @@ public class MiningManager extends SkillManager {
         int skillLevel = getSkillLevel();
 
         for (Tier tier : Tier.values()) {
-            if (skillLevel >= tier.getLevel()) {
-                return tier.getBlastDamageDecrease();
+            if (skillLevel >= TierReflection.getLevel(tier)) {
+                return TierReflection.getBlastDamageDecrease(tier);
             }
         }
 
