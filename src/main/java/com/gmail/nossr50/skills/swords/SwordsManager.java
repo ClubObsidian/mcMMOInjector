@@ -34,22 +34,22 @@ public class SwordsManager extends SkillManager
     
     public boolean canActivateAbility() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && this.mcMMOPlayer.getToolPreparationMode(ToolType.SWORD) && Permissions.serratedStrikes((Permissible)this.getPlayer());
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && this.mcMMOPlayer.getToolPreparationMode(ToolType.SWORD) && Permissions.serratedStrikes((Permissible)this.getPlayer());
     }
     
     public boolean canUseBleed() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.BLEED);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.BLEED);
     }
     
     public boolean canUseCounterAttack(final Entity target) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && target instanceof LivingEntity && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.COUNTER);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && target instanceof LivingEntity && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.COUNTER);
     }
     
     public boolean canUseSerratedStrike() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && this.mcMMOPlayer.getAbilityMode(AbilityType.SERRATED_STRIKES) && Permissions.serratedStrikes((Permissible)this.getPlayer());
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.SWORDS) && this.mcMMOPlayer.getAbilityMode(AbilityType.SERRATED_STRIKES) && Permissions.serratedStrikes((Permissible)this.getPlayer());
     }
     
     public void bleedCheck(final LivingEntity target) 

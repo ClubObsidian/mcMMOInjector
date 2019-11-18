@@ -39,32 +39,32 @@ public class AxesManager extends SkillManager
     
     public boolean canUseAxeMastery() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.AXE_MASTERY);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.AXE_MASTERY);
     }
     
     public boolean canCriticalHit(final LivingEntity target) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.CRITICAL_HIT);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.CRITICAL_HIT);
     }
     
     public boolean canImpact(final LivingEntity target) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.ARMOR_IMPACT) && this.hasArmor(target);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.ARMOR_IMPACT) && this.hasArmor(target);
     }
     
     public boolean canGreaterImpact(final LivingEntity target) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.GREATER_IMPACT) && !this.hasArmor(target);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.GREATER_IMPACT) && !this.hasArmor(target);
     }
     
     public boolean canUseSkullSplitter(final LivingEntity target) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && this.mcMMOPlayer.getAbilityMode(AbilityType.SKULL_SPLITTER) && Permissions.skullSplitter((Permissible)this.getPlayer());
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && target.isValid() && this.mcMMOPlayer.getAbilityMode(AbilityType.SKULL_SPLITTER) && Permissions.skullSplitter((Permissible)this.getPlayer());
     }
     
     public boolean canActivateAbility() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && this.mcMMOPlayer.getToolPreparationMode(ToolType.AXE) && Permissions.skullSplitter((Permissible)this.getPlayer());
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.AXES) && this.mcMMOPlayer.getToolPreparationMode(ToolType.AXE) && Permissions.skullSplitter((Permissible)this.getPlayer());
     }
     
     public double axeMastery() 

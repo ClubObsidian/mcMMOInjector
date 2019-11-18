@@ -38,33 +38,33 @@ public class UnarmedManager extends SkillManager
     
     public boolean canActivateAbility() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && this.mcMMOPlayer.getToolPreparationMode(ToolType.FISTS) && Permissions.berserk((Permissible)this.getPlayer());
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && this.mcMMOPlayer.getToolPreparationMode(ToolType.FISTS) && Permissions.berserk((Permissible)this.getPlayer());
     }
     
     public boolean canUseIronArm() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.IRON_ARM);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.IRON_ARM);
     }
     
     public boolean canUseBerserk() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && this.mcMMOPlayer.getAbilityMode(AbilityType.BERSERK) && Permissions.berserk((Permissible)this.getPlayer());
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && this.mcMMOPlayer.getAbilityMode(AbilityType.BERSERK) && Permissions.berserk((Permissible)this.getPlayer());
     }
     
     public boolean canDisarm(final LivingEntity target) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && target instanceof Player && ((Player)target).getItemInHand().getType() != Material.AIR && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DISARM);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && target instanceof Player && ((Player)target).getItemInHand().getType() != Material.AIR && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DISARM);
     }
     
     public boolean canDeflect() 
     {
         final Player player = this.getPlayer();
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && ItemUtils.isUnarmed(player.getItemInHand()) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DEFLECT);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && ItemUtils.isUnarmed(player.getItemInHand()) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DEFLECT);
     }
     
     public boolean canUseBlockCracker() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.BLOCK_CRACKER);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.UNARMED) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.BLOCK_CRACKER);
     }
     
     public boolean blockCrackerCheck(final BlockState blockState) 

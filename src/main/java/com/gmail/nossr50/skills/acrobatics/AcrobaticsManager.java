@@ -44,12 +44,12 @@ public class AcrobaticsManager extends SkillManager
     
     public boolean canRoll() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ACROBATICS) && !this.exploitPrevention() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.ROLL);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ACROBATICS) && !this.exploitPrevention() && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.ROLL);
     }
     
     public boolean canDodge(final Entity damager) 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ACROBATICS) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DODGE) && (!(damager instanceof LightningStrike) || !Acrobatics.dodgeLightningDisabled) && this.skill.shouldProcess(damager);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ACROBATICS) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DODGE) && (!(damager instanceof LightningStrike) || !Acrobatics.dodgeLightningDisabled) && this.skill.shouldProcess(damager);
     }
     
     public double dodgeCheck(final double damage) 

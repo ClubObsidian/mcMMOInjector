@@ -35,21 +35,21 @@ public class MiningManager extends SkillManager {
     }
 
     public boolean canUseDemolitionsExpertise() {
-        return !SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && getSkillLevel() >= BlastMining.getDemolitionExpertUnlockLevel() && Permissions.demolitionsExpertise(getPlayer());
+        return SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && getSkillLevel() >= BlastMining.getDemolitionExpertUnlockLevel() && Permissions.demolitionsExpertise(getPlayer());
     }
 
     public boolean canDetonate() {
         Player player = getPlayer();
 
-        return !SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && canUseBlastMining() && player.isSneaking() && player.getInventory().getItemInMainHand().getType() == BlastMining.detonator && Permissions.remoteDetonation(player);
+        return SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && canUseBlastMining() && player.isSneaking() && player.getInventory().getItemInMainHand().getType() == BlastMining.detonator && Permissions.remoteDetonation(player);
     }
 
     public boolean canUseBlastMining() {
-        return !SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && getSkillLevel() >= BlastMining.Tier.ONE.getLevel();
+        return SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && getSkillLevel() >= BlastMining.Tier.ONE.getLevel();
     }
 
     public boolean canUseBiggerBombs() {
-        return !SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && getSkillLevel() >= BlastMining.getBiggerBombsUnlockLevel() && Permissions.biggerBombs(getPlayer());
+        return SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING) && getSkillLevel() >= BlastMining.getBiggerBombsUnlockLevel() && Permissions.biggerBombs(getPlayer());
     }
 
     /**
@@ -57,9 +57,12 @@ public class MiningManager extends SkillManager {
      *
      * @param blockState The {@link BlockState} to check ability activation for
      */
-    public void miningBlockCheck(BlockState blockState) {
-    	if(SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING))
+    public void miningBlockCheck(BlockState blockState) 
+    {
+    	if(!SkillManagerAPI.testFor(this.getPlayer(), Skill.MINING))
+    	{
     		return;
+    	}
     	
         Player player = getPlayer();
 

@@ -16,14 +16,6 @@ import com.gmail.nossr50.skills.unarmed.UnarmedManager;
 
 public class McMmoInjector extends JavaPlugin {
 
-	/*
-	 * 
-	 * com.gmail.nossr50.listeners.BlockListener.onBlockBreak()
-	 * com.gmail.nossr50.skills.mining.MiningManager.miningBlockCheck()
-	 * com.gmail.nossr50.skills.SkillManager.applyXpGain()
-	 * com.gmail.nossr50.util.BlockUtils.shouldBeWatched()
-	 */
-	
 	@Override
 	public void onLoad()
 	{
@@ -48,7 +40,7 @@ public class McMmoInjector extends JavaPlugin {
 				@Override
 				public boolean call(Player player) 
 				{
-					return true;
+					return false;
 				}
 				
 			}, Skill.valueOf(skill.toUpperCase()));

@@ -29,15 +29,18 @@ public class SkillManagerAPI {
 	{
 		List<SkillCallback> callbacks = SkillManagerAPI.callbacks.get(skill);
 		if(callbacks == null)
-			return false;
+		{
+			return true;
+		}
 		
 		for(SkillCallback call : callbacks)
 		{
-			if(call.call(player))
+			if(!call.call(player))
 			{
-				return true;
+				return false;
 			}
 		}
-		return false;
+		
+		return true;
 	}
 }
