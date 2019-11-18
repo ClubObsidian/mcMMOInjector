@@ -32,17 +32,17 @@ public class ArcheryManager extends SkillManager
     
     public boolean canDaze(final LivingEntity target) 
     {
-        return target instanceof Player && !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ARCHERY) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DAZE);
+        return target instanceof Player && SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ARCHERY) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.DAZE);
     }
     
     public boolean canSkillShot() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ARCHERY) && this.getSkillLevel() >= Archery.skillShotIncreaseLevel && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.SKILL_SHOT);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ARCHERY) && this.getSkillLevel() >= Archery.skillShotIncreaseLevel && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.SKILL_SHOT);
     }
     
     public boolean canRetrieveArrows() 
     {
-        return !SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ARCHERY) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.RETRIEVE);
+        return SkillManagerAPI.testFor(this.mcMMOPlayer.getPlayer(), Skill.ARCHERY) && Permissions.secondaryAbilityEnabled((Permissible)this.getPlayer(), SecondaryAbility.RETRIEVE);
     }
     
     public void distanceXpBonus(final LivingEntity target, final Entity damager) 
@@ -60,7 +60,6 @@ public class ArcheryManager extends SkillManager
     {
         if (SkillUtils.activationSuccessful(SecondaryAbility.RETRIEVE, this.getPlayer(), this.getSkillLevel(), this.activationChance)) 
         {
-        	
             this.incrementTrackerValue(target);
         }
     }
