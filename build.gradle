@@ -1,21 +1,18 @@
-buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
-  }
+plugins {
+	id 'com.github.johnrengelman.shadow' version '5.0.0'
+	id 'java'
+	id 'eclipse'
+	id 'idea'
+	id 'maven'
 }
 
-
-apply plugin: 'java'
-apply plugin: 'com.github.johnrengelman.shadow'
-
+group = 'com.clubobsidian'
+version = '1.0.0'
 
 repositories {
+    flatDir { dirs 'libs' }
     mavenCentral()
     maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
-    flatDir { dirs 'libs' }
 }
 
 
