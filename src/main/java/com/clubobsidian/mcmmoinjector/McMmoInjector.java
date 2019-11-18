@@ -35,7 +35,11 @@ public class McMmoInjector extends JavaPlugin {
 		FileConfiguration config = this.getConfig();
 		for(String skill : config.getStringList("disabled-skills"))
 		{
-			SkillManagerAPI.addSkillCallback(new SkillCallback() {
+			Skill mcMMOSkill = Skill.valueOf(skill.toUpperCase());
+			this.getLogger().info("Disabling skill " + mcMMOSkill);
+			
+			SkillManagerAPI.addSkillCallback(new SkillCallback() 
+			{
 
 				@Override
 				public boolean call(Player player) 
@@ -43,7 +47,7 @@ public class McMmoInjector extends JavaPlugin {
 					return false;
 				}
 				
-			}, Skill.valueOf(skill.toUpperCase()));
+			}, mcMMOSkill);
 		}
 	}
 	
